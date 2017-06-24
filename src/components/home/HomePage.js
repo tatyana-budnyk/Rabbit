@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { moveRabbit } from '../actions/actionRabbit';
+import { moveRabbit } from '../../actions/actionRabbit';
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -10,7 +10,8 @@ class HomePage extends React.Component {
     }
 
     handleClick() {
-        this.dispatch(moveRabbit);
+        console.log('dispatch***', this.props.dispatch, moveRabbit);
+//        this.props.dispatch(actionRabbit.moveRabbit(this.state));
     }
 
     /*HomePage.propTypes = {
@@ -35,10 +36,12 @@ function mapStateToProps(state, ownProps) {
         y: state.y
     };
 }
+/*
 function mapDispatchToProps(state, ownProps) {
     return {
 
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+*/
+export default connect(mapStateToProps)(HomePage);
 
