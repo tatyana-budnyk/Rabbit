@@ -1,13 +1,13 @@
 import React from 'react';
 
-class HomePage extends React.Component {
+class SubscribeForm extends React.Component {
     render() {
         return(
             <div>
-                <h1>Hello</h1>
+                <h1>Form</h1>
             </div>
         ); 
     } 
 }
 
-export default HomePage;
+export default SubscribeForm;
