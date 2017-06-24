@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
-import moveRabbit from './reducerRabbit';
+import {rabbitReducer} from './rabbitReducer';
 
-const rootReducer = combineReducers({
-    moveRabbit
+export const rootReducer = combineReducers({
+    rabbitReducer
 });
+
+//export default rootReducer;

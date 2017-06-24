@@ -1,6 +1,6 @@
-export function moveRabbit(coordinates) {
+export const moveRabbit = (coordinates) => {
     return {
         type: "MOVE",
         coordinates
     };
-}
+};
