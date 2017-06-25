@@ -18,9 +18,18 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Coordinates: x = {this.props.x} y = {this.props.y} </h1>
-                <button type="button" onClick={this.handleClick}>MOVE RABBIT</button>
+            <div className="row">
+
+                <div className="col-md-9"> 
+                    <button className="btn" type="button" onClick={this.handleClick}>MOVE RABBIT</button>
+                    <div className="rabbit" style={{top: this.props.x + 'px', 
+                                                    left: this.props.y + 'px'}}>
+                    </div>
+                </div>
+
+                <div className="col-md-3"> Hunters here...
+                    <h1>Coordinates: x = {this.props.x} y = {this.props.y} </h1>
+                </div>    
             </div>
         );
     }
