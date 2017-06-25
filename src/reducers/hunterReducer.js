@@ -1,20 +1,24 @@
-export const hunterReducer = (prevState = {}, action) => {
-    //    console.log("addHunter-reducer", action, prevState);
+export const hunterReducer = (state = [], action) => {
+
     switch (action.type) {
         case 'ADD':
-            //console.log(action, state);
+            const existingItem = state.filter((obj) => {
+                return obj.hunterName === action.hunter.hunterName;
+            });
+            if (existingItem.length === 0) {
+                return [...state, Object.assign({}, action.hunter)];
+            }
+            break;
 
-            const res = Object.assign(
-                { name: "" },
-                prevState,
-                { names: action.names }
+        case 'DEL':
+            console.log("delete***", action);
 
-            );
-            console.log("reducer res", res);
-            return res;
+            const newState = state.filter((obj) => {
+                return obj.hunterName != action.hunter.hunterName;
+            });
 
-        //            return { names: action.names };
-        //return [...state, Object.assign({},action.name)];
-        default: return prevState;
+            const itemNumber = state.indexOf(action.hunter);
+            return newState;
+        default: return state;
     }
 };

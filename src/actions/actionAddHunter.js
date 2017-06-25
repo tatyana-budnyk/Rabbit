@@ -1,11 +1,7 @@
-let allNames = [];
-
-export const actionAddHunter = (name) => {
-    if (!allNames.includes(name)) {
-        allNames.push(name);
-    }
+export const actionAddHunter = (hunter) => {
+    
     return {
         type: "ADD",
-        names: allNames
+        hunter
     };
 };

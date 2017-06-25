@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-inverse">
             <div className="container-fluid">
-                <div className="navbar-header">
+                <div className="navbar-header" >
                     Catch the Rabbit with React and Redux!
                 </div>
                 <ul className="nav navbar-nav navbar-right">

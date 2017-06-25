@@ -1,37 +1,49 @@
 import React, { PropTypes } from 'react';
 import { actionAddHunter } from '../../actions/actionAddHunter';
+import { actionDeleteHunter } from '../../actions/actionDeleteHunter';
 import { connect } from 'react-redux';
 
 class SubscribeForm extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        this.state = { hunterName: '' };
+        this.state = { hunter: { hunterName: '' } };
+
         this.onChangeName = this.onChangeName.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
-    handleSubmit(event) {
-        this.props.dispatch(actionAddHunter(this.state.hunterName));
+    handleSubmit() {
+        this.props.dispatch(actionAddHunter(this.state.hunter));
+    }
+
+    handleDelete() {
+        this.props.dispatch(actionDeleteHunter(this.state.hunter));
     }
 
     onChangeName(event) {
-        //event.preventDefault();
-        this.setState({ hunterName: event.target.value });
+        const hunter = this.state.hunter;
+        hunter.hunterName = event.target.value;
+        this.setState({ hunter: hunter });
+    }
+
+    hunterList(hunter, index) {
+        return <div key={index}>{hunter.hunterName}</div>;
     }
 
     render() {
+        const hunters = this.props.hunters;
+        const list = hunters ? hunters.map((item, index) => { return <div key={index}>{item.hunterName}</div>;}) : "--";
         return (
             <form >
                 <input type="text"
-                    value={this.props.hunterName}
+                    value={this.state.hunter.hunterName}
                     placeholder="Enter your name"
                     onChange={this.onChangeName} />
                 <button type="button" onClick={this.handleSubmit}>Subscribe</button>
-                <ul>{
-                    this.props.names ? this.props.names.map((name, index) =>
-                        <li key="{index}">{name}</li>) : "--no names--"
-                }</ul>
+                <button type="button" onClick={this.handleDelete}>Unsubscribe</button>
+                <ul>{list}</ul>
             </form>
         );
     }
@@ -39,14 +51,12 @@ class SubscribeForm extends React.Component {
 
 SubscribeForm.propTypes = {
     dispatch: PropTypes.func.isRequired,
-    hunterName: PropTypes.string,
-    names: PropTypes.array
+    hunters: PropTypes.array
 };
 
 const mapStateToProps = (state) => {
     return {
-        hunterName: state.hunterReducer.name,
-        names: state.hunterReducer.names
+        hunters: state.hunterReducer
     };
 };
 
