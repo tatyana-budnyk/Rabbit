@@ -29,8 +29,8 @@ class SubscribeForm extends React.Component {
                     onChange={this.onChangeName} />
                 <button type="button" onClick={this.handleSubmit}>Subscribe</button>
                 <ul>{
-                    this.props.names ? this.props.names.map((name) =>
-                        <li>{name}</li>) : "--no names--"
+                    this.props.names ? this.props.names.map((name, index) =>
+                        <li key="{index}">{name}</li>) : "--no names--"
                 }</ul>
             </form>
         );
