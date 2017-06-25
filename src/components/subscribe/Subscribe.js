@@ -5,6 +5,9 @@ class SubscribeForm extends React.Component {
         return(
             <div>
                 <h1>Form</h1>
+                <label>Enter your name:</label>
+                <input type="text" />
+                <button type="submit">Subscribe</button>
             </div>
         ); 
     } 

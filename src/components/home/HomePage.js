@@ -2,22 +2,20 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { moveRabbit } from '../../actions/actionRabbit';
 
+
 class HomePage extends React.Component {
     constructor(props, context) {
         super(props, constructor);
+        
         this.state = { x: 0, y: 0 };
+
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
-        console.log('dispatch***', this.props.dispatch, moveRabbit);
-//        this.props.dispatch(actionRabbit.moveRabbit(this.state));
+    handleClick () { 
+        this.props.dispatch(moveRabbit());
     }
 
-    /*HomePage.propTypes = {
-        x: this.state.x,
-        y: this.state.y
-    }*/
     render() {
         return (
             <div>
@@ -28,20 +26,18 @@ class HomePage extends React.Component {
     }
 }
 
+HomePage.propTypes = {
+        x: PropTypes.number.x,
+        y: PropTypes.number.y,
+        dispatch: PropTypes.func.isRequired
+};
 
-
-function mapStateToProps(state, ownProps) {
+function mapStateToProps (state) {
     return {
-        x: state.x,
-        y: state.y
+        x: state.rabbitReducer.x,
+        y: state.rabbitReducer.y
     };
 }
-/*
-function mapDispatchToProps(state, ownProps) {
-    return {
 
-    };
-}
-*/
 export default connect(mapStateToProps)(HomePage);
 
