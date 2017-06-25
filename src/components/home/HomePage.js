@@ -42,6 +42,7 @@ HomePage.propTypes = {
 };
 
 function mapStateToProps (state) {
+    console.log("***mapStateToProps", state);
     return {
         x: state.rabbitReducer.x,
         y: state.rabbitReducer.y

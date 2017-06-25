@@ -1,19 +1,18 @@
 import React, { PropTypes } from 'react';
-import { addHunter } from '../../actions/addHunter';
+import { actionAddHunter } from '../../actions/actionAddHunter';
 import { connect } from 'react-redux';
 
 class SubscribeForm extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        this.state = {hunterName: '' };
+        this.state = { hunterName: '' };
         this.onChangeName = this.onChangeName.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event) {
-        this.props.dispatch(addHunter(this.state.hunterName));
-
+        this.props.dispatch(actionAddHunter(this.state.hunterName));
     }
 
     onChangeName(event) {
@@ -23,26 +22,32 @@ class SubscribeForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form >
                 <input type="text"
-                    value={this.state.hunterName}
+                    value={this.props.hunterName}
                     placeholder="Enter your name"
                     onChange={this.onChangeName} />
-                <button type="submit">Subscribe</button>
+                <button type="button" onClick={this.handleSubmit}>Subscribe</button>
+                <ul>{
+                    this.props.names ? this.props.names.map((name) =>
+                        <li>{name}</li>) : "--no names--"
+                }</ul>
             </form>
         );
     }
 }
 
 SubscribeForm.propTypes = {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    hunterName: PropTypes.string,
+    names: PropTypes.array
 };
 
-
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
     return {
-        hunterName: state.addHunter.hunterName
+        hunterName: state.hunterReducer.name,
+        names: state.hunterReducer.names
     };
-}
+};
 
 export default connect(mapStateToProps)(SubscribeForm);
