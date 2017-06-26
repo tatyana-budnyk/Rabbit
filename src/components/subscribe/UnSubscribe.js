@@ -42,7 +42,7 @@ class UnSubscribeForm extends React.Component {
                     </div>
                     <div classclassName="form-group">        
                              <div classclassName="col-sm-offset-2 col-sm-5">
-                               <button type="submit" /*onClick={this.handleDelete}*/>Unsubscribe</button>
+                               <button type="submit">Unsubscribe</button>
                         </div>
                      </div>
                 </form>
