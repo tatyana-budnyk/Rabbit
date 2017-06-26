@@ -18,7 +18,7 @@ class HomePage extends React.Component {
         const hunters = this.props.hunters;
 
         const list = hunters.map((item, index) => { return <div key={index} className="hunter">
-            <span className="glyphicon glyphicon-user"></span> {item.hunterName}<span className="hunter"> x = {this.props.x} y = {this.props.y}</span></div>;});
+            <span className="glyphicon glyphicon-user"></span> {item}<span className="hunter"> x = {this.props.x} y = {this.props.y}</span></div>;});
        
         return (
             <div className="row">

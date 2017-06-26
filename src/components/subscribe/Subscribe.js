@@ -8,28 +8,23 @@ class SubscribeForm extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        this.state = { hunter: { hunterName: '' } };
+        this.state = { hunterName: '' };
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.dispatch(actionAddHunter(this.state.hunter));
-        this.setState({ hunter: { hunterName: '' } });
+        this.props.dispatch(actionAddHunter(this.state.hunterName));
+        this.setState({ hunterName: ''});
     }
 
     onChangeName = (event) => {
-        const hunter = this.state.hunter;
-        hunter.hunterName = event.target.value;
-        this.setState({ hunter: hunter });
-    }
-
-    hunterList(hunter, index) {
-        return <div key={index}>{hunter.hunterName}</div>;
+        this.state.hunterName = event.target.value;
+        this.setState({ hunterName: this.state.hunterName });
     }
 
     render() {
         const hunters = this.props.hunters;
-        const list = hunters ? hunters.map((item, index) => { return <div key={index}>{item.hunterName}</div>;}) : "--";
+        const list = hunters && hunters.map ? hunters.map((item, index) => { return <div key={index}>{item}</div>;}) : "--";
         return (
             <div className="container">
                 <h2>Subscribe form</h2>
@@ -39,7 +34,7 @@ class SubscribeForm extends React.Component {
                 <div className="col-sm-5">
                         <input type="text" className="form-control"
                          id="name" placeholder="Enter your name" 
-                         value={this.state.hunter.hunterName} onChange={this.onChangeName} />
+                         value={this.state.hunterName} onChange={this.onChangeName} />
                 </div>
                     </div>
                     <div className="form-group">

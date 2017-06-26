@@ -6,19 +6,18 @@ class UnSubscribeForm extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        this.state = { hunter: { hunterName: '' } };
+        this.state = { hunterName: '' };
     }
 
     handleDelete = (event) => {
         event.preventDefault();
-        this.props.dispatch(actionDeleteHunter(this.state.hunter));
-        this.setState({ hunter: { hunterName: '' } });
+        this.props.dispatch(actionDeleteHunter(this.state.hunterName));
+        this.setState( {hunterName: '' } );
     }
 
     onChangeName = (event) => {
-        const hunter = this.state.hunter;
-        hunter.hunterName = event.target.value;
-        this.setState({ hunter: hunter });
+        this.state.hunterName = event.target.value;
+        this.setState({ hunterName: this.state.hunterName });
     }
 
     render() {
@@ -31,7 +30,7 @@ class UnSubscribeForm extends React.Component {
                 <div className="col-sm-5">
                         <input type="text" className="form-control"
                          id="name" placeholder="Enter your name" 
-                         value={this.state.hunter.hunterName} onChange={this.onChangeName} />
+                         value={this.state.hunterName} onChange={this.onChangeName} />
                 </div>
                     </div>
                     <div className="form-group">
