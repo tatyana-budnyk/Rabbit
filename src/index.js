@@ -8,7 +8,7 @@ import routes from './routes';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const store = configureStore({ rabbitReducer: {x: 0, y: 0}});
+const store = configureStore({ rabbitReducer: {x: 400, y: 200}});
 
 render (
     <Provider store={store}>

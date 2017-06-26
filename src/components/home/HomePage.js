@@ -8,7 +8,6 @@ class HomePage extends React.Component {
         super(props, constructor);
         
         this.state = { x: 0, y: 0 };
-
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -18,19 +17,22 @@ class HomePage extends React.Component {
 
     render() {
         const hunters = this.props.hunters;
-        const list = hunters ? hunters.map((item, index) => { return <div key={index}>{item.hunterName}</div>;}) : "--";
+
+        const list = hunters ? hunters.map((item, index) => 
+        { return <div key={index} className="hunter"><span className="glyphicon glyphicon-user"></span> {item.hunterName}</div>;}) : "There aren't hunters now...";
+       
         return (
             <div className="row">
 
                 <div className="col-md-9"> 
-                    <button className="btn" type="button" onClick={this.handleClick}>MOVE RABBIT</button>
-                    <div className="rabbit" style={{top: this.props.x + 'px', 
-                                                    left: this.props.y + 'px'}}></div>
+                    <button className="btn-lg" type="button" onClick={this.handleClick}>MOVE RABBIT</button>
+                    <div className="rabbit" style={{top: this.props.y + 'px', 
+                                                    left: this.props.x + 'px'}}></div>
                 </div>
 
-                <div className="col-md-3"> Hunters here...
+                <div className="col-md-3"> <h1>Hunters here...</h1>
                      {list}
-                    <h1>Coordinates: x = {this.props.x} y = {this.props.y} </h1>
+                    <h3>x = {this.props.x} y = {this.props.y} </h3>
                 </div>    
             </div>
         );

@@ -36,15 +36,33 @@ class SubscribeForm extends React.Component {
         const hunters = this.props.hunters;
         const list = hunters ? hunters.map((item, index) => { return <div key={index}>{item.hunterName}</div>;}) : "--";
         return (
-            <form >
-                <input type="text"
-                    value={this.state.hunter.hunterName}
-                    placeholder="Enter your name"
-                    onChange={this.onChangeName} />
-                <button type="button" onClick={this.handleSubmit}>Subscribe</button>
-                <button type="button" onClick={this.handleDelete}>Unsubscribe</button>
+            <div className="container">
+                <h2>Subscribe form</h2>
+            <form className="form-horizontal">
+                <div className="form-group">
+                    <label className="control-label col-sm-2">Your name:</label>
+                <div className="col-sm-5">
+                        <input type="text" className="form-control"
+                         id="name" placeholder="Enter your name" 
+                         value={this.state.hunter.hunterName} onChange={this.onChangeName} />
+                </div>
+                    </div>
+                    <div className="form-group">
+                <label className="control-label col-sm-2">Password:</label>
+                        <div className="col-sm-5">          
+                     <input type="password" className="form-control" id="pwd" placeholder="Enter password"  />
+                     </div>
+                    </div>
+    
+                    <div classclassName="form-group">        
+                             <div classclassName="col-sm-offset-2 col-sm-5">
+                                <button type="button" classclassName="btn btn-default" onClick={this.handleSubmit}>Submit</button>
+                        </div>
+                     </div>
+                </form>
                 <ul>{list}</ul>
-            </form>
+                <button type="button" onClick={this.handleDelete}>Unsubscribe</button>
+            </div>    
         );
     }
 }

@@ -9,7 +9,7 @@ const Header = () => {
                     Catch the Rabbit with React and Redux!
                 </div>
                 <ul className="nav navbar-nav navbar-right">
-                    <li><IndexLink to="/">Home</IndexLink></li>
+                    <li><IndexLink to="/"><span className="glyphicon glyphicon-home"></span> Home</IndexLink></li>
                     <li><Link to="/subscribe"><span className="glyphicon glyphicon-user"></span> Subscribe</Link></li>
                 </ul>
             </div>

@@ -5,9 +5,11 @@
 }
 
 .col-md-3 {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border: 1px solid black;
     background-color: lightgray;
     height: 800px;
+    
 }
 
 .col-md-9 {
@@ -25,8 +27,13 @@
     
 }
 
-.btn {
-    z-index: 2;
+.hunter {
+    font-size: x-large;
+} 
+
+.btn-lg {
+    outline: none;
+    margin: 5px;
 }
 
 .navbar-header {
