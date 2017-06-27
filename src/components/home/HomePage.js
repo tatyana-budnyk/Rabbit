@@ -18,7 +18,7 @@ class HomePage extends React.Component {
         const hunters = this.props.hunters;
 
         const list = hunters.map((item, index) => { return <div key={index} className="hunter">
-            <span className="glyphicon glyphicon-user"></span> {item}<span className="hunter"> x = {this.props.x} y = {this.props.y}</span></div>;});
+            <div className="avatar">-</div> <div>{item} ( x = {this.props.x},  y = {this.props.y} )</div></div>;});
        
         return (
             <div className="row">
@@ -29,7 +29,7 @@ class HomePage extends React.Component {
                                                     left: this.props.x + 'px'}}></div>
                 </div>
                 
-                <div className="col-md-3"> <h1>Hunters here...</h1>
+                <div className="col-md-3"> <h1>Hunters ...</h1>
                      {list}
                 </div>    
             </div>

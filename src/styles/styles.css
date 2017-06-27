@@ -31,15 +31,19 @@
     font-size: x-large;
     margin: 10px;
 } 
-
+.avatar {
+     background-image: url('hunter.jpg');
+     width: 30px;
+     
+}
 .btn-lg {
     outline: none;
     margin: 5px;
 }
 
 .navbar-header {
-        color: white;
-        font-size: xx-large;
-        margin: 10px;
+    color: white;
+    font-size: xx-large;
+    margin: 10px;
         
 }

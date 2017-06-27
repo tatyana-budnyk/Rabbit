@@ -28,23 +28,17 @@ class UnSubscribeForm extends React.Component {
                 <div className="form-group">
                     <label className="control-label col-sm-2">Your name:</label>
                 <div className="col-sm-5">
-                        <input type="text" className="form-control"
+                    <input type="text" className="form-control"
                          id="name" placeholder="Enter your name" 
                          value={this.state.hunterName} onChange={this.onChangeName} />
                 </div>
+                </div>
+                <div classclassName="form-group">        
+                    <div classclassName="col-sm-offset-2 col-sm-5">
+                        <button type="submit">Unsubscribe</button>
                     </div>
-                    <div className="form-group">
-                <label className="control-label col-sm-2">Password:</label>
-                        <div className="col-sm-5">          
-                     <input type="password" className="form-control" id="pwd" placeholder="Enter password"  />
-                     </div>
-                    </div>
-                    <div classclassName="form-group">        
-                             <div classclassName="col-sm-offset-2 col-sm-5">
-                               <button type="submit">Unsubscribe</button>
-                        </div>
-                     </div>
-                </form>
+                </div>
+            </form>
             </div>    
         );
     }

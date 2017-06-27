@@ -35,11 +35,11 @@ class SubscribeForm extends React.Component {
     }
 
     render() {
-        const hunters = this.props.hunters;
-        const list = hunters && hunters.map ? hunters.map((item, index) => { return <div key={index}>{item}</div>; }) : "";
+
         return (
             <div className="container">
                 <h2>Subscribe form</h2>
+                
                 <form className="form-horizontal" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label className="control-label col-sm-2">Your name:</label>
@@ -49,12 +49,6 @@ class SubscribeForm extends React.Component {
                                 value={this.state.hunterName} onChange={this.onChangeName} />
                         </div>
                     </div>
-                    <div className="form-group">
-                        <label className="control-label col-sm-2">Password:</label>
-                        <div className="col-sm-5">
-                            <input type="password" className="form-control" id="pwd" placeholder="Enter password" />
-                        </div>
-                    </div>
 
                     <div classclassName="form-group">
                         <div classclassName="col-sm-offset-2 col-sm-5">
@@ -62,7 +56,6 @@ class SubscribeForm extends React.Component {
                         </div>
                     </div>
                 </form>
-                <ul>{list}</ul>
                 If you don't want to recieve coordinates in future follw the link <Link to="/unsubscribe">UnSubscribe</Link>
             </div>
         );
