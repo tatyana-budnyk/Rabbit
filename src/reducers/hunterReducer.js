@@ -4,8 +4,7 @@ export const hunterReducer = (state = [], action) => {
         case 'ADD':
             return [...state, action.hunter];
         case 'DEL':
-            const res = state.filter((elem) => elem !== action.hunter);
-            return res;
+            return state.filter((elem) => elem !== action.hunter);
         default: return state;
     }
 };
